@@ -52,16 +52,13 @@ fun HomeScreen(
         }
         Row {
             Spacer()
-            Button(
-                onClick = {
-                    navController.navigate(Main.ChangeColorLock.id) {
-                        
-                    }
-                },
-                content = {
-                    Text("Change color lock")
+            Button(onClick = {
+                navController.navigate(Main.ChangeColorLock.id) {
+
                 }
-            )
+            }, content = {
+                Text("Change color lock")
+            })
             Spacer()
         }
         Spacer()

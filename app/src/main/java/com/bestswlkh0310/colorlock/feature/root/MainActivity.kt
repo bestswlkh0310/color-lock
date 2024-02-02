@@ -13,6 +13,7 @@ import androidx.navigation.Navigation
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.bestswlkh0310.colorlock.feature.changecolorlock.ChangeColorLockScreen
 import com.bestswlkh0310.colorlock.feature.lockscreen.LockScreenService
 import com.bestswlkh0310.colorlock.feature.main.HomeScreen
 import com.bestswlkh0310.colorlock.style.foundation.ColorlockTheme
@@ -48,7 +49,7 @@ fun NavigationGraph(
             HomeScreen(navController, startService, stopService)
         }
         composable(Main.ChangeColorLock.id) {
-            Text(text = "change color lock screen")
+            ChangeColorLockScreen(navController = navController)
         }
     }
 }

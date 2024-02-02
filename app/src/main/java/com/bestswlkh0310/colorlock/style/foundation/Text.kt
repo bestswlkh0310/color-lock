@@ -7,17 +7,18 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.bestswlkh0310.colorlock.util.Spacer
 
 
 @Composable
-fun Title(text: String) {
+fun Title(text: String, padding: Dp = 20.dp) {
     Row {
         Text(
             modifier = Modifier
-                .padding(start = 20.dp),
+                .padding(start = padding),
             text = text,
             style = TextStyle(
                 fontSize = 20.sp,
