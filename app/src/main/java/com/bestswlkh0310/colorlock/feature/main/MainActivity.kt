@@ -1,4 +1,4 @@
-package com.bestswlkh0310.colorlock
+package com.bestswlkh0310.colorlock.feature.main
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,11 +11,17 @@ import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.material3.Button
 import androidx.compose.material3.Surface
+import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.sp
 import com.bestswlkh0310.colorlock.feature.lockscreen.LockScreenService
 import com.bestswlkh0310.colorlock.style.foundation.ColorlockTheme
+import com.bestswlkh0310.colorlock.style.foundation.Title
+import com.bestswlkh0310.colorlock.util.Spacer
 
 class MainActivity: ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,34 +29,13 @@ class MainActivity: ComponentActivity() {
         setContent {
             ColorlockTheme {
                 Surface {
-                    Column {
-                        Spacer()
-                        Row {
-                            Spacer()
-                            Button(
-                                onClick = {
-                                    startForegroundService(Intent(applicationContext, LockScreenService::class.java))
-                                },
-                                content = {
-                                    Text("서비스 시작")
-                                }
-                            )
-                            Spacer()
-                        }
-                        Spacer()
+                    MainScreen({
+                        startForegroundService(Intent(applicationContext, LockScreenService::class.java))
+                    }) {
+                        stopService(Intent(applicationContext, LockScreenService::class.java))
                     }
                 }
             }
         }
     }
-}
-
-@Composable
-fun ColumnScope.Spacer(weight: Float = 1f) {
-    Spacer(modifier = Modifier.weight(weight))
-}
-
-@Composable
-fun RowScope.Spacer(weight: Float = 1f) {
-    Spacer(modifier = Modifier.weight(weight))
 }
