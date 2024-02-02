@@ -5,8 +5,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
@@ -15,8 +13,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.bestswlkh0310.colorlock.style.component.RainbowCeil
+import com.bestswlkh0310.colorlock.style.component.ColorGrid
 import com.bestswlkh0310.colorlock.style.foundation.Title
+import com.bestswlkh0310.colorlock.style.foundation.rainbow
 import com.bestswlkh0310.colorlock.util.Spacer
 
 @Composable
@@ -44,7 +43,9 @@ fun ChangeColorLockScreen(
             modifier = Modifier
                 .padding(it)
         ) {
-            RainbowCeil {
+            ColorGrid(
+                colorList = rainbow
+            ) {
 
             }
             Spacer()

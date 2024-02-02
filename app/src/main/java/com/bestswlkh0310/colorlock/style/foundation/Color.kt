@@ -17,7 +17,7 @@ val greenColor = Color(0xFF55EB64)
 val blueColor = Color(0xFF4D89F1)
 val indigoColor = Color(0xFF5325C0)
 
-val rainbow = arrayListOf(
+val rainbow = arrayOf(
     redColor,
     orangeColor,
     yellowColor,
