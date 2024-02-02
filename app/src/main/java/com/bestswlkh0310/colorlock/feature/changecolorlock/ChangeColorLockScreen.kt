@@ -15,6 +15,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.bestswlkh0310.colorlock.style.component.RainbowCeil
 import com.bestswlkh0310.colorlock.style.foundation.Title
 import com.bestswlkh0310.colorlock.util.Spacer
 
@@ -43,7 +44,10 @@ fun ChangeColorLockScreen(
             modifier = Modifier
                 .padding(it)
         ) {
+            RainbowCeil {
 
+            }
+            Spacer()
         }
     }
 }
