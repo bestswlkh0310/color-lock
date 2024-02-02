@@ -1,6 +1,7 @@
 package com.bestswlkh0310.colorlock.feature.changecolorlock
 
 import android.util.Log
+import android.widget.Toast
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
@@ -19,6 +20,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.bestswlkh0310.colorlock.style.component.ColorGrid
@@ -33,6 +35,7 @@ fun ChangeColorLockScreen(
 ) {
 
     var chooseColors = remember { mutableStateListOf<Color>() }
+    val context = LocalContext.current
 
     Scaffold(
         topBar = {
@@ -55,10 +58,14 @@ fun ChangeColorLockScreen(
             modifier = Modifier
                 .padding(it)
         ) {
-            Title("Choose next color")
+            Title("Choose color")
             ColorGrid(
                 colorList = rainbow
             ) { color ->
+                if (chooseColors.size >= 12) {
+                    Toast.makeText(context, "too long", Toast.LENGTH_SHORT).show()
+                    return@ColorGrid
+                }
                 chooseColors.add(color)
             }
 
